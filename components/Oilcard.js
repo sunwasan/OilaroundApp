@@ -24,7 +24,8 @@ export default function Oilcard(props) {
         flexDirection: "row",
         alignItems: "center",
         alignContent:"center",
-        marginHorizontal:5
+        marginHorizontal:5,
+        zIndex:1
       }}
     >
       <Image

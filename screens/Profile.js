@@ -13,7 +13,12 @@ import GenerateTable from "../components/GenerateTable";
 import { SelectCountry } from "react-native-element-dropdown";
 import { LinearGradient } from "expo-linear-gradient";
 import { LineChart, BarChart } from "react-native-chart-kit";
+import BackButton from "../components/BackButton";
+import { useNavigation } from "@react-navigation/native";
+import { FontAwesome } from "@expo/vector-icons";
 export default function Profile() {
+  const navigation = useNavigation();
+
   const local_data = [
     {
       value: "1",
@@ -72,12 +77,16 @@ export default function Profile() {
   };
   return (
     <View style={{ flex: 1, elevation: 0 }}>
+      <BackButton/>
       <LinearGradient
         style={{ ...StyleSheet.absoluteFillObject, elevation: 0 }}
         colors={["blue", "purple"]}
         start={{ x: 1, y: 0 }}
         end={{ x: 0.3, y: 0 }}
       >
+        {/* <TouchableOpacity onPress={navigation.navigate("Home")}>
+          // <FontAwesome name="chevron-circle-left" />
+        </TouchableOpacity> */}
         <View
           style={{
             backgroundColor: "white",
@@ -209,13 +218,19 @@ export default function Profile() {
               verticalLabelRotation={30}
             />
             <Text style={styles.detail}>Favorite Station</Text>
-            <View style={{flexDirection:'row', paddingHorizontal:25, paddingVertical:10}}>
+            <View
+              style={{
+                flexDirection: "row",
+                paddingHorizontal: 25,
+                paddingVertical: 10,
+              }}
+            >
               <Image
                 style={{ height: 60, width: 60 }}
                 resizeMode="contain"
                 source={require("C:/Users/User/university/mobile/OilaroundApp/assets/oillogo/bangchak.png")}
               />
-                            <Image
+              <Image
                 style={{ height: 60, width: 60 }}
                 resizeMode="contain"
                 source={require("C:/Users/User/university/mobile/OilaroundApp/assets/oillogo/ptt.png")}
@@ -252,7 +267,7 @@ export default function Profile() {
             valueField="value"
             labelField="lable"
             imageField="image"
-            placeholder="Select country"
+            placeholder="Select Car"
             searchPlaceholder="Search..."
             onChange={(e) => {
               setCountry(e.value);

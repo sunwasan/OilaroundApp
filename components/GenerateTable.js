@@ -17,7 +17,7 @@ export default function GenerateTable(props) {
     randomNumbers.push(randomNumber);
   }
   return (
-    <View >
+    <View style = {{height:'80%'}}>
       <View
         style={{
           height: 45,
@@ -42,8 +42,8 @@ export default function GenerateTable(props) {
           borderBottomWidth: 4,
           borderColor: "grey",
           overflow: "hidden",
-          maxHeight: 300,
-          // marginTop: -40,
+          maxHeight: 100,
+          marginTop: "10%",
         }}
       >
         <Text style={{ fontWeight: "bold" }}>น้ำมัน</Text>
@@ -54,7 +54,7 @@ export default function GenerateTable(props) {
           style={{
             paddingTop:10,
             alignItems: "center",
-            marginBottom: 100,
+            marginBottom: "1%",
           }}
         >
           <FlatList

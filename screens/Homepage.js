@@ -9,6 +9,8 @@ import Oilcard from "../components/Oilcard";
 import { useEffect, useState } from "react";
 import GenerateTable from "../components/GenerateTable";
 import { LinearGradient } from "expo-linear-gradient";
+import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
+import BottomNavBar from "../components/BottomNavBar";
 
 export default function Homepage() {
   const [lastestOil, setOil] = useState([]);
@@ -48,7 +50,7 @@ export default function Homepage() {
   return (
     <View style={{ flex: 1 }}>
       <LinearGradient
-        style={{ ...StyleSheet.absoluteFillObject, elevation: 0 }}
+        style={{ ...StyleSheet.absoluteFillObject, elevation: 0, zIndex: 0 }}
         colors={["blue", "purple"]}
         start={{ x: 1, y: 0 }}
         end={{ x: 0.3, y: 0 }}
@@ -61,10 +63,13 @@ export default function Homepage() {
           scrollEventThrottle={16}
           style={{
             flexDirection: "row",
-            marginTop: 160,
+            marginTop: 120,
             paddingHorizontal: isMaxScroll ? -10000 : 20,
-            zIndex: 2,
-            elevation: 5,
+
+            zIndex: 10,
+            elevation: 10,
+            // height:100,
+            // maxHeight:2000
           }}
         >
           <TouchableOpacity
@@ -158,18 +163,22 @@ export default function Homepage() {
         <View
           style={{
             backgroundColor: "white",
-            borderTopRightRadius: 70,
-            borderTopLeftRadius: 70,
-            height: 600,
-            marginTop:-200,
-            zIndex: 0,
-            // alignContent: "center",
+            borderTopRightRadius: 30,
+            borderTopLeftRadius: 30,
+            height: "70%",
+            // marginTop: -200,
+            zIndex: 1,
             elevation: 0,
-            // paddingBottom: 200,
           }}
         >
-          <GenerateTable station_data={lastestOil[stationShow]} />
+          <View >
+            <GenerateTable station_data={lastestOil[stationShow]} />
+          </View>
+          <View >
+            <BottomNavBar />
+          </View>
         </View>
+
       </LinearGradient>
     </View>
   );
