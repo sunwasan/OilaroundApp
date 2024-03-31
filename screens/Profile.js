@@ -16,25 +16,15 @@ import { LineChart, BarChart } from "react-native-chart-kit";
 import BackButton from "../components/BackButton";
 import { useNavigation } from "@react-navigation/native";
 import { FontAwesome } from "@expo/vector-icons";
+import CarSelect from "../components/CarSelect";
 export default function Profile() {
   const navigation = useNavigation();
-
-  const local_data = [
-    {
-      value: "1",
-      lable: "Susuki Ciaz",
-      image: {
-        uri: "https://www.vigcenter.com/public/all/images/default-image.jpg",
-      },
-    },
-    {
-      value: "2",
-      lable: "Toyota Camry",
-      image: {
-        uri: "https://www.vigcenter.com/public/all/images/default-image.jpg",
-      },
-    },
-  ];
+  const station_img = {
+    ptt: require("C:/Users/User/university/mobile/OilaroundApp/assets/oillogo/ptt.png"),
+    bangchak: require("C:/Users/User/university/mobile/OilaroundApp/assets/oillogo/bangchak.png"),
+    shell: require("C:/Users/User/university/mobile/OilaroundApp/assets/oillogo/shell.png"),
+    caltex: require("C:/Users/User/university/mobile/OilaroundApp/assets/oillogo/caltex.png"),
+  };
   const [country, setCountry] = useState("1");
   const styles = StyleSheet.create({
     dropdown: {
@@ -44,7 +34,7 @@ export default function Profile() {
       backgroundColor: "#EEEEEE",
       borderRadius: 22,
       paddingHorizontal: 8,
-      marginTop: -90,
+      marginTop: "-30%",
     },
     imageStyle: {
       width: 24,
@@ -67,26 +57,139 @@ export default function Profile() {
       fontWeight: "bold",
     },
   });
-  const bar_data = {
-    labels: ["January", "February", "March", "April", "May", "June"],
-    datasets: [
-      {
-        data: [5, 10, 15, 13, 12, 14],
+  const index = Number(country) - 1;
+  const local_data = [
+    {
+      value: "1",
+      lable: "Suzuki Ciaz",
+      image: require("C:/Users/User/university/mobile/OilaroundApp/assets/oillogo/car.png"),
+      data: {
+        labels: ["January", "February", "March", "April", "May", "June"],
+        chart_data: [
+          {
+            line_data: [
+              Math.random() * 100,
+              Math.random() * 100,
+              Math.random() * 100,
+              Math.random() * 100,
+              Math.random() * 100,
+              Math.random() * 100,
+            ],
+            bar_data: [
+              Math.random() * 100,
+              Math.random() * 100,
+              Math.random() * 100,
+              Math.random() * 100,
+              Math.random() * 100,
+              Math.random() * 100,
+            ],
+          },
+        ],
       },
-    ],
-  };
+      favorite_station: ["bangchak", "ptt"],
+    },
+    {
+      value: "2",
+      lable: "Toyota Camry",
+      image: require("C:/Users/User/university/mobile/OilaroundApp/assets/oillogo/camry.png"),
+      favorite_station: ["shell", "ptt"],
+      data: {
+        labels: ["January", "February", "March", "April", "May", "June"],
+        chart_data: [
+          {
+            line_data: [
+              Math.random() * 100,
+              Math.random() * 100,
+              Math.random() * 100,
+              Math.random() * 100,
+              Math.random() * 100,
+              Math.random() * 100,
+            ],
+            bar_data: [
+              Math.random() * 100,
+              Math.random() * 100,
+              Math.random() * 100,
+              Math.random() * 100,
+              Math.random() * 100,
+              Math.random() * 100,
+            ],
+          },
+        ],
+      },
+    },
+    {
+      value: "3",
+      lable: "BMW",
+      image: require("C:/Users/User/university/mobile/OilaroundApp/assets/oillogo/bmw.png"),
+      favorite_station: ["shell", "ptt"],
+      data: {
+        labels: ["January", "February", "March", "April", "May", "June"],
+        chart_data: [
+          {
+            line_data: [
+              Math.random() * 100,
+              Math.random() * 100,
+              Math.random() * 100,
+              Math.random() * 100,
+              Math.random() * 100,
+              Math.random() * 100,
+            ],
+            bar_data: [
+              Math.random() * 100,
+              Math.random() * 100,
+              Math.random() * 100,
+              Math.random() * 100,
+              Math.random() * 100,
+              Math.random() * 100,
+            ],
+          },
+        ],
+      },
+    },
+    {
+      value: "4",
+      lable: "Mercedes",
+      image: require("C:/Users/User/university/mobile/OilaroundApp/assets/oillogo/car.png"),
+      favorite_station: ["shell", "ptt"],
+      data: {
+        labels: ["January", "February", "March", "April", "May", "June"],
+        chart_data: [
+          {
+            line_data: [
+              Math.random() * 100,
+              Math.random() * 100,
+              Math.random() * 100,
+              Math.random() * 100,
+              Math.random() * 100,
+              Math.random() * 100,
+            ],
+            bar_data: [
+              Math.random() * 100,
+              Math.random() * 100,
+              Math.random() * 100,
+              Math.random() * 100,
+              Math.random() * 100,
+              Math.random() * 100,
+            ],
+          },
+        ],
+      },
+    },
+  ];
+  const [carImage, setCarImage] = useState(local_data[0]["image"]); // [1,2,3,4
+  console.log(
+    local_data[index ]["data"]["chart_data"][0]["line_data"]
+  );
+
   return (
     <View style={{ flex: 1, elevation: 0 }}>
-      <BackButton/>
+      <BackButton />
       <LinearGradient
         style={{ ...StyleSheet.absoluteFillObject, elevation: 0 }}
         colors={["blue", "purple"]}
         start={{ x: 1, y: 0 }}
         end={{ x: 0.3, y: 0 }}
       >
-        {/* <TouchableOpacity onPress={navigation.navigate("Home")}>
-          // <FontAwesome name="chevron-circle-left" />
-        </TouchableOpacity> */}
         <View
           style={{
             backgroundColor: "white",
@@ -120,24 +223,12 @@ export default function Profile() {
             <Text style={styles.detail}>History Spending</Text>
             <LineChart
               data={{
-                labels: [
-                  "January",
-                  "February",
-                  "March",
-                  "April",
-                  "May",
-                  "June",
-                ],
+                labels: local_data[index]["data"]["labels"],
                 datasets: [
                   {
-                    data: [
-                      Math.random() * 100,
-                      Math.random() * 100,
-                      Math.random() * 100,
-                      Math.random() * 100,
-                      Math.random() * 100,
-                      Math.random() * 100,
-                    ],
+                    data: local_data[index]["data"][
+                      "chart_data"
+                    ][0]["line_data"],
                   },
                 ],
               }}
@@ -211,7 +302,16 @@ export default function Profile() {
                   stroke: "blue",
                 },
               }}
-              data={bar_data}
+              data={{
+                labels: local_data[index]["data"]["labels"],
+                datasets: [
+                  {
+                    data: local_data[index]["data"]["chart_data"][0][
+                      "bar_data"
+                    ],
+                  },
+                ],
+              }}
               width={300}
               height={100}
               yAxisLabel=""
@@ -253,10 +353,10 @@ export default function Profile() {
           <Image
             style={{ height: 400, width: 400, marginTop: -200 }}
             resizeMode="contain"
-            source={require("C:/Users/User/university/mobile/OilaroundApp/assets/oillogo/car.png")}
+            source={carImage}
           />
           <SelectCountry
-            style={styles.dropdown}
+            style={[styles.dropdown]}
             selectedTextStyle={styles.selectedTextStyle}
             placeholderStyle={styles.placeholderStyle}
             imageStyle={styles.imageStyle}
@@ -269,8 +369,10 @@ export default function Profile() {
             imageField="image"
             placeholder="Select Car"
             searchPlaceholder="Search..."
+            dropup={true}
             onChange={(e) => {
               setCountry(e.value);
+              setCarImage(e.image);
             }}
           />
         </View>

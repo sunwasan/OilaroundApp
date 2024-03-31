@@ -171,15 +171,19 @@ export default function Homepage() {
             elevation: 0,
           }}
         >
-          <View >
+          <View>
             <GenerateTable station_data={lastestOil[stationShow]} />
           </View>
-          <View >
-            <BottomNavBar />
-          </View>
         </View>
-
       </LinearGradient>
+      <View
+        style={{
+          flex: 1,
+          justifyContent: "flex-end",
+        }}
+      >
+        <BottomNavBar current_page="Home" />
+      </View>
     </View>
   );
 }
