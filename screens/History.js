@@ -246,7 +246,7 @@ export default function History() {
                       <Picker.Item label="Gas 3" value="gas3" />
                     </Picker>
                   </View>
-                  <View
+                  {/* <View
                     style={{
                       flexDirection: "row",
                       alignContent: "center",
@@ -255,7 +255,7 @@ export default function History() {
                   >
                     <Text style={{ fontWeight: "bold", fontSize: 15 }}>
                       Station Name
-                    </Text>
+                    </Text> */}
                     {/* <Picker
                       style={{ width: "70%" }}
                       selectedValue={stationName}
@@ -270,7 +270,7 @@ export default function History() {
                       <Picker.Item label="Station 2" value="station2" />
                       <Picker.Item label="Station 3" value="station3" />
                     </Picker> */}
-                  </View>
+                  {/* </View> */}
                   <View style={{ flexDirection: "row", width: "100%" }}>
                     <View style={{ marginRight: 10 }}>
                       <Button
