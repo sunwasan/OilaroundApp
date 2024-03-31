@@ -25,8 +25,6 @@ export default function History() {
   const [amount, setAmount] = useState(0);
   const [liters, setLiters] = useState(0);
   const [gasType, setGasType] = useState("");
-  const [stationName, setStationName] = useState("");
-  const [name, setName] = useState("John Doe");
   const [car, setCar] = useState("Toyota");
 
   const [history, setHistory] = useState([]);
@@ -246,31 +244,7 @@ export default function History() {
                       <Picker.Item label="Gas 3" value="gas3" />
                     </Picker>
                   </View>
-                  {/* <View
-                    style={{
-                      flexDirection: "row",
-                      alignContent: "center",
-                      alignItems: "center",
-                    }}
-                  >
-                    <Text style={{ fontWeight: "bold", fontSize: 15 }}>
-                      Station Name
-                    </Text> */}
-                    {/* <Picker
-                      style={{ width: "70%" }}
-                      selectedValue={stationName}
-                      onValueChange={(itemValue) => setStationName(itemValue)}
-                    >
-                      <Picker.Item
-                        label="Select Station Name"
-                        value=""
-                        color="grey"
-                      />
-                      <Picker.Item label="Station 1" value="station1" />
-                      <Picker.Item label="Station 2" value="station2" />
-                      <Picker.Item label="Station 3" value="station3" />
-                    </Picker> */}
-                  {/* </View> */}
+
                   <View style={{ flexDirection: "row", width: "100%" }}>
                     <View style={{ marginRight: 10 }}>
                       <Button
@@ -357,12 +331,7 @@ export default function History() {
                         <Text style={{ fontWeight: "bold" }}>Gas Type : </Text>
                         <Text>{item.gasType}</Text>
                       </View>
-                      {/* <View style={{ flexDirection: "row" }}>
-                        <Text style={{ fontWeight: "bold" }}>
-                          Station Name :{" "}
-                        </Text>
-                        <Text>{item.stationName}</Text>
-                      </View> */}
+
                       <View style={{ flexDirection: "row" }}>
                         <Text style={{ fontWeight: "bold" }}>Car : </Text>
                         <Text>{item.car}</Text>
