@@ -3,6 +3,7 @@ import React from "react";
 import Homepage from "../screens/Homepage";
 import Profile from "../screens/Profile";
 import History from "../screens/History";
+import Map from "../screens/Map";
 
 
 const Stack = createStackNavigator();
@@ -13,6 +14,7 @@ export default function HomeStack(){
         <Stack.Screen name ='Home' component={Homepage} options={{ headerShown: false ,animationEnabled: false}}/>
         <Stack.Screen name ='Profile' component={Profile}options={{ headerShown: false ,animationEnabled: false}}/>
         <Stack.Screen name ='History' component={History} options={{ headerShown: false ,animationEnabled: false}}/>
+        <Stack.Screen name = 'Map' component={Map} options={{ headerShown: false ,animationEnabled: false}}/>
     </Stack.Navigator>
     );
 }
