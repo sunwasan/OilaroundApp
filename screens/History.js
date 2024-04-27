@@ -41,7 +41,6 @@ export default function History() {
   }, []);
   const sumbitHandle = (selected, amount, liters, gasType, stationName) => {
     const newHistory = {
-      profile: name,
       car: car,
       date: selected,
       amount: amount,
@@ -105,6 +104,9 @@ export default function History() {
                 }, {}),
               }}
             />
+            <Picker>
+              
+            </Picker>
             {/* ------------------------------- Add Button ------------------------------- */ }
             <View style={{ flexDirection: "row", justifyContent: "center" }}>
               <TouchableOpacity
@@ -148,11 +150,11 @@ export default function History() {
                     <Picker
                       style={{ width: "70%" }}
                       selectedValue={car}
-                      onValueChange={(itemValue) => setGasType(itemValue)}
+                      onValueChange={(itemValue) => setCar(itemValue)}
                     >
                       <Picker.Item
                         label="Select Car"
-                        value=""
+                        value={car}
                         color="grey"
                       />
                       <Picker.Item label="Suzuki Ciaz" value="Suzuki Ciaz" />
@@ -302,7 +304,7 @@ export default function History() {
                 renderItem={({ item }) => (
                   <View
                     style={{
-                      backgroundColor: "#CDCDCD",
+                      backgroundColor: "#EDF2FA",
                       padding: 10,
                       paddingHorizontal: 20,
                       borderRadius: 20,

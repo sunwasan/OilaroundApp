@@ -71,7 +71,7 @@ export default function BottomNavBar(props) {
         }}
       >
         <IconNav
-          title={"Maps"}
+          title={"Map"}
           name={"map"}
           onPress={handlePress}
           ClickedButton={ClickedButton}

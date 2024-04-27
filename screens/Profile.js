@@ -63,7 +63,7 @@ export default function Profile() {
     {
       value: "1",
       lable: "Suzuki Ciaz",
-      image: require("C:/Users/User/university/mobile/OilaroundApp/assets/oillogo/car.png"),
+      image: require("C:/Users/User/university/mobile/OilaroundApp/assets/car/car.png"),
       data: {
         labels: ["January", "February", "March", "April", "May", "June"],
         chart_data: [
@@ -92,7 +92,7 @@ export default function Profile() {
     {
       value: "2",
       lable: "Toyota Camry",
-      image: require("C:/Users/User/university/mobile/OilaroundApp/assets/oillogo/camry.png"),
+      image: require("C:/Users/User/university/mobile/OilaroundApp/assets/car/camry.png"),
       favorite_station: ["shell", "ptt"],
       data: {
         labels: ["January", "February", "March", "April", "May", "June"],
@@ -121,7 +121,7 @@ export default function Profile() {
     {
       value: "3",
       lable: "BMW",
-      image: require("C:/Users/User/university/mobile/OilaroundApp/assets/oillogo/bmw.png"),
+      image: require("C:/Users/User/university/mobile/OilaroundApp/assets/car/bmw.png"),
       favorite_station: ["shell", "ptt"],
       data: {
         labels: ["January", "February", "March", "April", "May", "June"],
@@ -150,7 +150,7 @@ export default function Profile() {
     {
       value: "4",
       lable: "Mercedes",
-      image: require("C:/Users/User/university/mobile/OilaroundApp/assets/oillogo/car.png"),
+      image: require("C:/Users/User/university/mobile/OilaroundApp/assets/car/suzuki.png"),
       favorite_station: ["shell", "ptt"],
       data: {
         labels: ["January", "February", "March", "April", "May", "June"],
