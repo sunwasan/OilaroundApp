@@ -58,6 +58,7 @@ export default function Profile() {
     },
   });
   const index = Number(country) - 1;
+
   const local_data = [
     {
       value: "1",
@@ -176,10 +177,7 @@ export default function Profile() {
       },
     },
   ];
-  const [carImage, setCarImage] = useState(local_data[0]["image"]); // [1,2,3,4
-  console.log(
-    local_data[index ]["data"]["chart_data"][0]["line_data"]
-  );
+  const [carImage, setCarImage] = useState(local_data[0]["image"]); 
 
   return (
     <View style={{ flex: 1, elevation: 0 }}>
