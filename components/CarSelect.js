@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Image, StyleSheet, View } from "react-native";
 import { SelectCountry } from "react-native-element-dropdown";
 
@@ -32,120 +32,28 @@ export default function CarSelect() {
     },
   });
 
-  const local_data = [
-    {
-      value: "1",
-      lable: "Suzuki Ciaz",
-      image: require("C:/Users/User/university/mobile/OilaroundApp/assets/oillogo/car.png"),
-      data: {
-        labels: ["January", "February", "March", "April", "May", "June"],
-        chart_data: [
-          {
-            line_data: [
-              Math.random() * 100,
-              Math.random() * 100,
-              Math.random() * 100,
-              Math.random() * 100,
-              Math.random() * 100,
-              Math.random() * 100,
-            ],
-            bar_data: [
-              Math.random() * 100,
-              Math.random() * 100,
-              Math.random() * 100,
-              Math.random() * 100,
-              Math.random() * 100,
-              Math.random() * 100,
-            ],
-          },
-        ],
+
+  const [local_data, setLocal_data] = useState([]); // [1,2,3,4
+
+  const onLoad = () => {
+    fetch("http://192.168.137.1:8000/api/userdata/",{
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
       },
-    },
-    {
-      value: "2",
-      lable: "Toyota Camry",
-      image: require("C:/Users/User/university/mobile/OilaroundApp/assets/oillogo/camry.png"),
-      data: {
-        labels: ["January", "February", "March", "April", "May", "June"],
-        chart_data: [
-          {
-            line_data: [
-              Math.random() * 100,
-              Math.random() * 100,
-              Math.random() * 100,
-              Math.random() * 100,
-              Math.random() * 100,
-              Math.random() * 100,
-            ],
-            bar_data: [
-              Math.random() * 100,
-              Math.random() * 100,
-              Math.random() * 100,
-              Math.random() * 100,
-              Math.random() * 100,
-              Math.random() * 100,
-            ],
-          },
-        ],
-      },
-    },
-    {
-      value: "3",
-      lable: "BMW",
-      image: require("C:/Users/User/university/mobile/OilaroundApp/assets/oillogo/bmw.png"),
-      data: {
-        labels: ["January", "February", "March", "April", "May", "June"],
-        chart_data: [
-          {
-            line_data: [
-              Math.random() * 100,
-              Math.random() * 100,
-              Math.random() * 100,
-              Math.random() * 100,
-              Math.random() * 100,
-              Math.random() * 100,
-            ],
-            bar_data: [
-              Math.random() * 100,
-              Math.random() * 100,
-              Math.random() * 100,
-              Math.random() * 100,
-              Math.random() * 100,
-              Math.random() * 100,
-            ],
-          },
-        ],
-      },
-    },
-    {
-      value: "4",
-      lable: "Mercedes",
-      image: require("C:/Users/User/university/mobile/OilaroundApp/assets/oillogo/car.png"),
-      data: {
-        labels: ["January", "February", "March", "April", "May", "June"],
-        chart_data: [
-          {
-            line_data: [
-              Math.random() * 100,
-              Math.random() * 100,
-              Math.random() * 100,
-              Math.random() * 100,
-              Math.random() * 100,
-              Math.random() * 100,
-            ],
-            bar_data: [
-              Math.random() * 100,
-              Math.random() * 100,
-              Math.random() * 100,
-              Math.random() * 100,
-              Math.random() * 100,
-              Math.random() * 100,
-            ],
-          },
-        ],
-      },
-    },
-  ];
+
+    }).then((response) => response.json())
+    .then((data) => {
+      setLocal_data(data);
+    }
+    ).catch((error) => {
+      console.error("Error:", error);
+    });
+  }
+  useEffect(() => {
+    onLoad();
+  }, []);
+
   const [carImage, setCarImage] = useState(local_data[0]["image"]); // [1,2,3,4
 
   return (
