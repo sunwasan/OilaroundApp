@@ -104,6 +104,9 @@ export default function History() {
                 }, {}),
               }}
             />
+            <Picker>
+              
+            </Picker>
             {/* ------------------------------- Add Button ------------------------------- */ }
             <View style={{ flexDirection: "row", justifyContent: "center" }}>
               <TouchableOpacity
