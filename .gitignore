@@ -42,6 +42,5 @@ __pycache__/
 
 #ignore any sqlite databases
 *.sqlite3
-
 #ignore myvenv folder
 myvenv/
