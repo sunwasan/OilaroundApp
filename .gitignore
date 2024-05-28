@@ -39,7 +39,6 @@ yarn-error.*
 __pycache__/
 #ignore any pyc files
 *.pyc
-
 #ignore any sqlite databases
 *.sqlite3
 #ignore myvenv folder
