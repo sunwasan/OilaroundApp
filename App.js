@@ -8,6 +8,10 @@ import Blank from "./screens/Blank";
 import BottomNavBar from "./components/BottomNavBar";
 import RootStack from "./navigations/RootStack";
 import HomeStack from "./navigations/HomeStack";
+import { LogBox } from "react-native";
+
+
+LogBox.ignoreAllLogs(true);
 
 export default function App() {
   return (
